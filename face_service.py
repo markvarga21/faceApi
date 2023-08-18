@@ -1,6 +1,5 @@
 from utils import convert_filestorage_to_cv2_image
 from deepface import DeepFace as df
-import json
 
 def validate_faces(id_image, selfie_image):
     cv2_id_image = convert_filestorage_to_cv2_image(id_image)
