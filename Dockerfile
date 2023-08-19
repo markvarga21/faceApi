@@ -5,4 +5,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 COPY . /app/
-CMD ["python", "/app/app.py"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
