@@ -8,11 +8,13 @@ cors = CORS(app)
 @cross_origin()
 @app.route("/")
 def index():
+    """Test endpoint."""
     return "Hi! Please visit the Github Repo (https://github.com/markvarga21/faceApi) for usage!"
 
 @cross_origin()
 @app.route("/validate", methods=['POST'])
 def validateImages():
+    """Endpoint for validating the two faces."""
     idPhoto = request.files['idPhoto']
     selfiePhoto = request.files['selfiePhoto']
     output = validate_faces(idPhoto, selfiePhoto)
