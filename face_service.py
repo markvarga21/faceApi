@@ -7,9 +7,11 @@ def validate_faces(id_image, selfie_image):
     cv2_selfie_image = convert_filestorage_to_cv2_image(selfie_image)
 
     result = df.verify(cv2_id_image, cv2_selfie_image)
+    proba = round(float(1-result['distance']), 2)
+    isValid = proba > 0.5
     ret = {
-        'isValid': bool(result['verified']),
-        'proba': round(float(1-result['distance']), 2)
+        'isValid': isValid,
+        'proba': proba
     }
 
     return ret
